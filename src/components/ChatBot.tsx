@@ -73,7 +73,9 @@ const ChatBot = () => {
   };
 
   const handleSendMessage = async () => {
-    if (!inputMessage.trim()) return;
+    if (!inputMessage.trim() || isTyping) return;
+
+    console.log("Sending message:", inputMessage);
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -83,21 +85,24 @@ const ChatBot = () => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentMessage = inputMessage;
     setInputMessage("");
     setIsTyping(true);
 
     // Simulate bot thinking time
     setTimeout(() => {
+      console.log("Bot responding to:", currentMessage);
+      
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        content: getBotResponse(inputMessage),
+        content: getBotResponse(currentMessage),
         sender: 'bot',
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
-    }, 1000);
+    }, 1500);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
