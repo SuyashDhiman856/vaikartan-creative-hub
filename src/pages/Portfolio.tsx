@@ -3,65 +3,105 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import ImageModal from "@/components/ImageModal";
+import SkillsSection from "@/components/SkillsSection";
 
 const Portfolio = () => {
-  // Placeholder portfolio items - will be replaced with actual work
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  // Portfolio items with actual design work
   const portfolioItems = [
     {
       id: 1,
-      title: "Brand Identity Design",
-      category: "Branding",
-      description: "Complete visual identity package including logo, colors, and brand guidelines.",
-      tags: ["Logo Design", "Brand Guidelines", "Color Theory"],
-      image: "placeholder-1",
+      title: "PREDATOR Campaign",
+      category: "Automotive Design",
+      description: "Dramatic automotive advertisement featuring powerful predator theme with BMW vehicle.",
+      tags: ["Automotive", "Campaign Design", "Typography"],
+      image: "/lovable-uploads/4190a6df-9165-465d-822a-1fb46c8e8422.png",
       featured: true
     },
     {
       id: 2,
-      title: "Modern Web Interface",
-      category: "Digital Design",
-      description: "Clean and modern web application interface with focus on user experience.",
-      tags: ["UI/UX", "Web Design", "Responsive"],
-      image: "placeholder-2",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "Creative Campaign",
-      category: "Marketing",
-      description: "Visual campaign design for product launch with multiple touchpoints.",
-      tags: ["Campaign", "Marketing", "Print Design"],
-      image: "placeholder-3",
+      title: "FUTURE ON WHEELS",
+      category: "Automotive Design", 
+      description: "Futuristic Mercedes-Benz campaign with sci-fi robot theme and dramatic lighting.",
+      tags: ["Futuristic", "Mercedes", "Concept Design"],
+      image: "/lovable-uploads/ddb9189c-b09a-49c9-8ecf-2cea871793ec.png",
       featured: true
     },
     {
+      id: 3,
+      title: "Smart Watch Interface",
+      category: "Product Design",
+      description: "Modern smartwatch interface design with clean green accent branding.",
+      tags: ["UI Design", "Product", "Wearables"],
+      image: "/lovable-uploads/069c2a37-6d2d-4910-a7bd-20a328ca3657.png",
+      featured: false
+    },
+    {
       id: 4,
-      title: "Mobile App Design",
-      category: "Digital Design",
-      description: "Intuitive mobile application design with seamless user journey.",
-      tags: ["Mobile UI", "App Design", "Prototyping"],
-      image: "placeholder-4",
+      title: "VEGGIE HULK Burger",
+      category: "Food & Beverage",
+      description: "Creative food advertisement with bold typography and appetizing product photography.",
+      tags: ["Food Design", "Typography", "Commercial"],
+      image: "/lovable-uploads/722b8a7f-a2ef-4493-8c5d-eafc2b5ab84e.png",
       featured: false
     },
     {
       id: 5,
-      title: "Corporate Branding",
-      category: "Branding",
-      description: "Professional corporate identity and business collateral design.",
-      tags: ["Corporate", "Business Cards", "Stationery"],
-      image: "placeholder-5",
+      title: "NON VEG Burger Campaign",
+      category: "Food & Beverage",
+      description: "Bold food marketing design with vibrant orange branding and premium burger photography.",
+      tags: ["Food Marketing", "Branding", "Commercial"],
+      image: "/lovable-uploads/060d940f-f7a0-4fd7-afa6-922282376175.png",
       featured: false
     },
     {
       id: 6,
-      title: "E-commerce Platform",
-      category: "Digital Design",
-      description: "Complete e-commerce website design with conversion optimization.",
-      tags: ["E-commerce", "Conversion", "Shopping"],
-      image: "placeholder-6",
+      title: "TOUGH Fitness Campaign",
+      category: "Sports & Fitness",
+      description: "Dynamic fitness poster design with bold yellow and black color scheme.",
+      tags: ["Fitness", "Poster Design", "Sports"],
+      image: "/lovable-uploads/1be7ee91-a75b-4da1-a39b-a7d19788e500.png",
+      featured: true
+    },
+    {
+      id: 7,
+      title: "RIDE INTO WILD",
+      category: "Automotive Design",
+      description: "Adventure motorcycle campaign with natural outdoor environment and vintage styling.",
+      tags: ["Motorcycle", "Adventure", "Outdoor"],
+      image: "/lovable-uploads/d0c57b44-ea1a-476e-950d-4881b059ff35.png",
+      featured: false
+    },
+    {
+      id: 8,
+      title: "RIDE LIKE A BEAST",
+      category: "Automotive Design", 
+      description: "Urban motorcycle design with modern city backdrop and sleek styling.",
+      tags: ["Urban", "Motorcycle", "Modern"],
+      image: "/lovable-uploads/6bb5ce07-3557-43c4-a7fe-4b2f8c94f317.png",
+      featured: false
+    },
+    {
+      id: 9,
+      title: "POWER Royal Enfield",
+      category: "Automotive Design",
+      description: "Premium motorcycle advertisement with luxury gold text effects and dramatic lighting.",
+      tags: ["Luxury", "Royal Enfield", "Premium"],
+      image: "/lovable-uploads/9f9f2e72-326a-4d97-954f-104f79e9934e.png",
       featured: true
     }
   ];
+
+  const handleImageClick = (imageSrc: string, imageAlt: string) => {
+    setModalImage({ src: imageSrc, alt: imageAlt });
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
 
   const categories = ["All", "Branding", "Digital Design", "Marketing"];
 
@@ -108,19 +148,16 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {portfolioItems.filter(item => item.featured).map((item) => (
                 <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
-                  <div className="aspect-video bg-gradient-to-br from-accent/20 to-primary/10 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-accent rounded-full mb-4 mx-auto flex items-center justify-center">
-                          <Eye className="h-8 w-8 text-accent-foreground" />
-                        </div>
-                        <p className="text-foreground font-medium">Your Design Will Be Here</p>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Button variant="accent" size="lg">
-                        <ExternalLink className="mr-2 h-5 w-5" />
-                        View Project
+                        <Eye className="mr-2 h-5 w-5" />
+                        View Full Design
                       </Button>
                     </div>
                   </div>
@@ -151,19 +188,16 @@ const Portfolio = () => {
             <div className="portfolio-grid">
               {portfolioItems.map((item) => (
                 <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
-                  <div className="aspect-video bg-gradient-to-br from-accent/10 to-primary/5 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-accent/20 rounded-full mb-3 mx-auto flex items-center justify-center">
-                          <Eye className="h-6 w-6 text-accent" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">Design Placeholder</p>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Button variant="accent">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View
+                        <Eye className="mr-2 h-4 w-4" />
+                        View Full Design
                       </Button>
                     </div>
                   </div>
@@ -193,6 +227,9 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <SkillsSection />
+
       {/* Work with Us Section */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -216,6 +253,16 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <ImageModal
+          isOpen={!!modalImage}
+          onClose={closeModal}
+          imageSrc={modalImage.src}
+          imageAlt={modalImage.alt}
+        />
+      )}
     </div>
   );
 };
