@@ -4,15 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section 
-      className="min-h-screen flex items-center justify-center px-4 relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/c60fcc3f-6422-48c7-a7e8-d5a963436e14.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <section className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div className="space-y-6">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground">
