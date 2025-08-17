@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Testimonials from "@/components/Testimonials";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Palette, Monitor, PenTool, Users } from "lucide-react";
@@ -60,6 +61,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-16 bg-background">
