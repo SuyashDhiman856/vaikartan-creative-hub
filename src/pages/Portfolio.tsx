@@ -9,6 +9,7 @@ import SkillsSection from "@/components/SkillsSection";
 
 const Portfolio = () => {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
   // Portfolio items with actual design work
   const portfolioItems = [
@@ -103,7 +104,24 @@ const Portfolio = () => {
     setModalImage(null);
   };
 
-  const categories = ["All", "Branding", "Digital Design", "Marketing"];
+  // Map display categories to actual portfolio categories
+  const categoryMapping: Record<string, string[]> = {
+    "All": [],
+    "Branding": ["Automotive Design", "Sports & Fitness"],
+    "Digital Design": ["Product Design"],
+    "Marketing": ["Food & Beverage"]
+  };
+
+  const categories = Object.keys(categoryMapping);
+
+  // Filter portfolio items based on selected category
+  const filteredItems = activeCategory === "All" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => categoryMapping[activeCategory].includes(item.category));
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -128,9 +146,10 @@ const Portfolio = () => {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant={category === "All" ? "accent" : "outline"}
+                variant={category === activeCategory ? "accent" : "outline"}
                 size="sm"
                 className="transition-all duration-300"
+                onClick={() => handleCategoryChange(category)}
               >
                 {category}
               </Button>
@@ -146,7 +165,7 @@ const Portfolio = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-8">Featured Projects</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {portfolioItems.filter(item => item.featured).map((item) => (
+              {filteredItems.filter(item => item.featured).map((item) => (
                 <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
@@ -186,7 +205,7 @@ const Portfolio = () => {
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-8">All Projects</h2>
             <div className="portfolio-grid">
-              {portfolioItems.map((item) => (
+              {filteredItems.map((item) => (
                 <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
