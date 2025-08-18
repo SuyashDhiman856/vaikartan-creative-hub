@@ -47,7 +47,7 @@ const Portfolio = () => {
       description: "Creative food advertisement with bold typography and appetizing product photography.",
       tags: ["Food Design", "Typography", "Commercial"],
       image: "/assets/VEGGIE HULK Burger.png",
-      featured: false
+      featured: true
     },
     {
       id: 5,
@@ -56,7 +56,7 @@ const Portfolio = () => {
       description: "Bold food marketing design with vibrant orange branding and premium burger photography.",
       tags: ["Food Marketing", "Branding", "Commercial"],
       image: "/assets/NON VEG Burger Campaign.png",
-      featured: false
+      featured: true
     },
     {
       id: 6,
