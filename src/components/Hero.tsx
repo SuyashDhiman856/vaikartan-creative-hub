@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-hero-gradient flex items-center px-4 lg:px-8 pt-16 md:pt-20">
+    <section className="min-h-screen bg-background flex items-center px-4 lg:px-8 pt-16 md:pt-20">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Section - Original Content */}
