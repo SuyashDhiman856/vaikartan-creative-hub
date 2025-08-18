@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Palette, Monitor, PenTool, Users } from "lucide-react";
@@ -63,7 +64,22 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <Testimonials />
+      <TestimonialCarousel />
+
+      {/* Contact Form Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Let's Work <span className="text-accent">Together</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Ready to bring your vision to life? Get in touch with us today.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-background">
