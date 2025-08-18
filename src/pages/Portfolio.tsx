@@ -19,7 +19,7 @@ const Portfolio = () => {
       category: "Automotive Design",
       description: "Dramatic automotive advertisement featuring powerful predator theme with BMW vehicle.",
       tags: ["Automotive", "Campaign Design", "Typography"],
-      image: "/assets/Predator Campaign.png",
+      image: "/assets/Predator Compaign.png",
       featured: true
     },
     {
