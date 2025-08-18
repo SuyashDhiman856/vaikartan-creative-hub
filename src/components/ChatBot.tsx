@@ -187,34 +187,34 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-24 right-6 z-40 w-96 h-[500px] shadow-strong border-0 bg-card">
-          <CardHeader className="pb-3 bg-accent text-accent-foreground rounded-t-lg">
-            <CardTitle className="flex items-center space-x-2 text-lg">
-              <Bot className="h-5 w-5" />
+        <Card className="fixed bottom-20 right-4 z-40 w-[calc(100vw-2rem)] max-w-96 h-[calc(100vh-7rem)] max-h-[500px] shadow-strong border-0 bg-card sm:bottom-24 sm:right-6 sm:w-96 sm:h-[500px]">
+          <CardHeader className="pb-2 sm:pb-3 bg-accent text-accent-foreground rounded-t-lg">
+            <CardTitle className="flex items-center space-x-2 text-base sm:text-lg">
+              <Bot className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>Vaikartan Assistant</span>
             </CardTitle>
-            <p className="text-sm opacity-90">Ask me about our services!</p>
+            <p className="text-xs sm:text-sm opacity-90">Ask me about our services!</p>
           </CardHeader>
           
-          <CardContent className="p-0 flex flex-col h-[calc(100%-120px)]">
+          <CardContent className="p-0 flex flex-col h-[calc(100%-100px)] sm:h-[calc(100%-120px)]">
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
               {messages.map((message) => (
                 <div
                   key={message.id}
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${
+                    className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg ${
                       message.sender === 'user'
                         ? 'bg-accent text-accent-foreground'
                         : 'bg-muted text-muted-foreground'
                     }`}
                   >
-                    <div className="flex items-start space-x-2">
-                      {message.sender === 'bot' && <Bot className="h-4 w-4 mt-0.5 flex-shrink-0" />}
-                      {message.sender === 'user' && <User className="h-4 w-4 mt-0.5 flex-shrink-0" />}
-                      <p className="text-sm leading-relaxed">{message.content}</p>
+                    <div className="flex items-start space-x-1 sm:space-x-2">
+                      {message.sender === 'bot' && <Bot className="h-3 w-3 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0" />}
+                      {message.sender === 'user' && <User className="h-3 w-3 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0" />}
+                      <p className="text-xs sm:text-sm leading-relaxed">{message.content}</p>
                     </div>
                   </div>
                 </div>
@@ -222,13 +222,13 @@ const ChatBot = () => {
               
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-muted text-muted-foreground p-3 rounded-lg max-w-[80%]">
-                    <div className="flex items-center space-x-2">
-                      <Bot className="h-4 w-4" />
+                  <div className="bg-muted text-muted-foreground p-2 sm:p-3 rounded-lg max-w-[85%] sm:max-w-[80%]">
+                    <div className="flex items-center space-x-1 sm:space-x-2">
+                      <Bot className="h-3 w-3 sm:h-4 sm:w-4" />
                       <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-muted-foreground rounded-full animate-bounce"></div>
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                       </div>
                     </div>
                   </div>
@@ -237,22 +237,23 @@ const ChatBot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-border">
+            <div className="p-3 sm:p-4 border-t border-border">
               <div className="flex space-x-2">
                 <Input
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask me about our services..."
-                  className="flex-1 border-border focus:border-accent"
+                  className="flex-1 border-border focus:border-accent text-xs sm:text-sm"
                 />
                 <Button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() || isTyping}
                   variant="accent"
                   size="sm"
+                  className="shrink-0"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </div>
             </div>
