@@ -14,15 +14,36 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }: ImageModalProps) =>
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Reset zoom and position when modal opens
   useEffect(() => {
     if (isOpen) {
       setZoom(1);
       setPosition({ x: 0, y: 0 });
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore body scroll when modal is closed
+      document.body.style.overflow = 'unset';
     }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -42,6 +63,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }: ImageModalProps) =>
 
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     const delta = e.deltaY * -0.01;
     const newZoom = Math.min(Math.max(zoom + delta, 0.5), 5);
     setZoom(newZoom);
@@ -179,9 +201,19 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }: ImageModalProps) =>
       {/* Instructions */}
       <div className="absolute bottom-4 right-4 z-10 bg-black/60 text-white px-3 py-2 rounded-lg text-sm max-w-xs">
         <div className="space-y-1">
-          <div>• Mouse wheel to zoom</div>
-          <div>• Drag to pan when zoomed</div>
-          <div>• Click buttons to control zoom</div>
+          {isMobile ? (
+            <>
+              <div>• Pinch to zoom in/out</div>
+              <div>• Drag to pan when zoomed</div>
+              <div>• Use zoom buttons above</div>
+            </>
+          ) : (
+            <>
+              <div>• Mouse wheel to zoom</div>
+              <div>• Drag to pan when zoomed</div>
+              <div>• Click buttons to control zoom</div>
+            </>
+          )}
         </div>
       </div>
     </div>
