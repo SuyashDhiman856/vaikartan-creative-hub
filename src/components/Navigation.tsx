@@ -67,7 +67,7 @@ const Navigation = () => {
             ))}
             <Link to="/contact">
               <Button variant="accent" size="sm" className="ml-4">
-                Get Quote
+                Request Work
               </Button>
             </Link>
           </div>
