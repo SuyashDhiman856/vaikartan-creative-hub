@@ -68,7 +68,7 @@ const ContactForm = () => {
 
   if (isSubmitted) {
     return (
-      <Card className="border-0 shadow-soft bg-card-gradient">
+      <Card className="component-border shadow-soft bg-white">
         <CardContent className="p-12 text-center">
           <div className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="h-8 w-8" />
@@ -83,7 +83,7 @@ const ContactForm = () => {
   }
 
   return (
-    <Card className="border-0 shadow-soft bg-card-gradient">
+    <Card className="component-border shadow-soft bg-white">
       <CardHeader>
         <CardTitle className="text-2xl text-foreground">Send us a Message</CardTitle>
         <p className="text-muted-foreground">

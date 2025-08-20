@@ -36,8 +36,8 @@ const Home = () => {
       <Hero />
 
       {/* Services Section */}
-      <section className="py-16 bg-muted/20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-8">
+        <div className="max-w-6xl mx-auto bg-white component-border p-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our <span className="text-accent">Services</span>
@@ -49,7 +49,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow component-border">
                 <CardContent className="space-y-4">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-accent/10 text-accent rounded-lg">
                     {service.icon}
@@ -67,8 +67,8 @@ const Home = () => {
       <TestimonialCarousel />
 
       {/* Contact Form Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-8">
+        <div className="max-w-4xl mx-auto bg-white component-border p-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Let's Work <span className="text-accent">Together</span>
@@ -82,8 +82,8 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 px-8">
+        <div className="max-w-4xl mx-auto bg-white component-border p-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Start Your Project?
           </h2>

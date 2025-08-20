@@ -30,8 +30,8 @@ const About = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-hero-gradient text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8 text-center">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               About <span className="text-accent">Vaikartan</span>
@@ -44,8 +44,8 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="section-split">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
@@ -82,8 +82,8 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               What Drives <span className="text-accent">Us</span>
@@ -95,7 +95,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="group hover-lift hover-glow border-0 shadow-soft bg-card-gradient text-center">
+              <Card key={index} className="group hover-lift hover-glow component-border shadow-soft bg-white text-center">
                 <CardContent className="p-8">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 text-accent rounded-xl mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                     {value.icon}
@@ -110,8 +110,8 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
               <div className="text-5xl font-bold text-accent">150+</div>
@@ -138,8 +138,8 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 px-8">
+        <div className="max-w-4xl mx-auto bg-primary component-border p-8 text-center text-primary-foreground">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Let's Create Together
           </h2>

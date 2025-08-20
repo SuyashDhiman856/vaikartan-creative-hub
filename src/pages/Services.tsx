@@ -138,8 +138,8 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-hero-gradient text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8 text-center">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Our <span className="text-accent">Services</span>
@@ -152,11 +152,11 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className={`relative overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient ${service.popular ? 'ring-2 ring-accent' : ''}`}>
+              <Card key={index} className={`relative overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white ${service.popular ? 'ring-2 ring-accent' : ''}`}>
                 {service.popular && (
                   <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
                     Most Popular
@@ -198,8 +198,8 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Our <span className="text-accent">Process</span>
@@ -229,8 +229,8 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 px-8">
+        <div className="max-w-4xl mx-auto bg-primary component-border p-8 text-center text-primary-foreground">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>

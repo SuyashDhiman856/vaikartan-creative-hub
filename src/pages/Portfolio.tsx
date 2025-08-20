@@ -126,8 +126,8 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-hero-gradient text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8 text-center">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Our <span className="text-accent">Portfolio</span>
@@ -140,8 +140,8 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <Button
@@ -159,14 +159,14 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           {/* Featured Projects */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-8">Featured Projects</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {filteredItems.filter(item => item.featured).map((item) => (
-                <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
+                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
                       src={item.image} 
@@ -206,7 +206,7 @@ const Portfolio = () => {
             <h2 className="text-3xl font-bold text-foreground mb-8">All Projects</h2>
             <div className="portfolio-grid">
               {filteredItems.map((item) => (
-                <Card key={item.id} className="group overflow-hidden border-0 shadow-soft hover-lift hover-glow bg-card-gradient">
+                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
                       src={item.image} 
@@ -250,8 +250,8 @@ const Portfolio = () => {
       <SkillsSection />
 
       {/* Work with Us Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 px-8">
+        <div className="max-w-4xl mx-auto bg-white component-border p-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Ready to Add Your Project?
           </h2>

@@ -63,8 +63,8 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-16 bg-muted/20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 px-8">
+      <div className="max-w-6xl mx-auto bg-white component-border p-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             What Our <span className="text-accent">Clients Say</span>
@@ -82,8 +82,8 @@ const TestimonialCarousel = () => {
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <Card className="text-center p-8 mx-4 shadow-medium bg-card-gradient">
+                 <div key={index} className="w-full flex-shrink-0">
+                   <Card className="text-center p-8 mx-4 shadow-medium bg-white component-border">
                     <CardContent className="space-y-6">
                       <div className="flex justify-center space-x-1">
                         {[...Array(testimonial.rating)].map((_, i) => (

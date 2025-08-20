@@ -34,8 +34,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-hero-gradient text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8 text-center">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Get In <span className="text-accent">Touch</span>
@@ -48,11 +48,11 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-7xl mx-auto bg-white component-border p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center border-0 shadow-soft hover-lift bg-card-gradient">
+              <Card key={index} className="text-center component-border shadow-soft hover-lift bg-white">
                 <CardContent className="p-6">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-accent/10 text-accent rounded-lg mb-4">
                     {info.icon}
@@ -75,7 +75,7 @@ const Contact = () => {
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Quick Contact */}
-              <Card className="border-0 shadow-soft bg-card-gradient">
+              <Card className="component-border shadow-soft bg-white">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-4">Quick Response</h3>
                   <p className="text-muted-foreground mb-6">
@@ -99,7 +99,7 @@ const Contact = () => {
               </Card>
 
               {/* Project Types */}
-              <Card className="border-0 shadow-soft bg-card-gradient">
+              <Card className="component-border shadow-soft bg-white">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-4">What We Can Help With</h3>
                   <div className="space-y-3">
@@ -128,7 +128,7 @@ const Contact = () => {
               </Card>
 
               {/* Response Time */}
-              <Card className="border-0 shadow-soft bg-accent/5">
+              <Card className="component-border shadow-soft bg-accent/5">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-4">
                     <Clock className="h-6 w-6" />
@@ -145,8 +145,8 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-8">
+        <div className="max-w-4xl mx-auto bg-white component-border p-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Frequently Asked Questions
@@ -157,7 +157,7 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-0 shadow-soft bg-card-gradient">
+            <Card className="component-border shadow-soft bg-white">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   How long does a typical project take?
@@ -168,7 +168,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-soft bg-card-gradient">
+            <Card className="component-border shadow-soft bg-white">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   Do you work with small businesses?
@@ -179,7 +179,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-soft bg-card-gradient">
+            <Card className="component-border shadow-soft bg-white">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   What's included in your design packages?
@@ -190,7 +190,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-soft bg-card-gradient">
+            <Card className="component-border shadow-soft bg-white">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   Do you offer ongoing support?
