@@ -19,9 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'system-ui', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
-				heading: ['Yatra One', 'cursive'],
+				yapari: ['Yatra One', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

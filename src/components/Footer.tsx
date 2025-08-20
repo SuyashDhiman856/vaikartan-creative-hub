@@ -35,7 +35,7 @@ const Footer = () => {
                   alt="Vaikartan Logo"
                   className="h-8 w-auto"
                 />
-                <span className="text-xl font-bold">Vaikartan</span>
+                <span className="text-xl font-bold font-yapari">Vaikartan</span>
               </div>
               <p className="text-primary-foreground/80 leading-relaxed">
                 Transforming ideas into compelling visual stories that connect and inspire. Your creative partner for exceptional design solutions.

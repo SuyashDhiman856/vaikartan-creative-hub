@@ -44,7 +44,7 @@ const Navigation = () => {
               alt="Vaikartan Logo"
               className="h-8 w-auto md:h-10 transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="text-xl md:text-2xl font-bold text-foreground">
+            <span className="text-xl md:text-2xl font-bold text-foreground font-yapari">
               Vaikartan
             </span>
           </Link>
