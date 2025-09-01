@@ -11,87 +11,87 @@ const Portfolio = () => {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  // Portfolio items with actual design work
+  // Portfolio items with downloaded images from reference website
   const portfolioItems = [
     {
       id: 1,
-      title: "PREDATOR Campaign",
-      category: "Automotive Design",
-      description: "Dramatic automotive advertisement featuring powerful predator theme with BMW vehicle.",
-      tags: ["Automotive", "Campaign Design", "Typography"],
-      image: "/assets/Predator Compaign.png",
+      title: "Against The Fate!",
+      category: "Digital Art",
+      description: "Creative poster design with dynamic visual elements.",
+      tags: ["Poster", "Digital Art", "Creative"],
+      image: "/assets/against-the-fate.webp",
       featured: true
     },
     {
       id: 2,
-      title: "FUTURE ON WHEELS",
+      title: "Mahindra BE-6 Batman Ed.",
       category: "Automotive Design", 
-      description: "Futuristic Mercedes-Benz campaign with sci-fi robot theme and dramatic lighting.",
-      tags: ["Futuristic", "Mercedes", "Concept Design"],
-      image: "/assets/Future on Wheels.png",
+      description: "Special edition automotive design with superhero theme.",
+      tags: ["Automotive", "Batman", "Design"],
+      image: "/assets/mahindra-batman.webp",
       featured: true
     },
     {
       id: 3,
-      title: "Smart Watch Interface",
+      title: "Perfume Posts Designs",
       category: "Product Design",
-      description: "Modern smartwatch interface design with clean green accent branding.",
-      tags: ["UI Design", "Product", "Wearables"],
-      image: "/assets/Smart Watch Interface.png",
+      description: "Elegant perfume advertisement designs with premium styling.",
+      tags: ["Perfume", "Product", "Advertisement"],
+      image: "/assets/perfume-posts.webp",
       featured: false
     },
     {
       id: 4,
-      title: "VEGGIE HULK Burger",
-      category: "Food & Beverage",
-      description: "Creative food advertisement with bold typography and appetizing product photography.",
-      tags: ["Food Design", "Typography", "Commercial"],
-      image: "/assets/VEGGIE HULK Burger.png",
+      title: "Movie Poster Arts",
+      category: "Entertainment",
+      description: "Creative movie poster designs with cinematic appeal.",
+      tags: ["Movies", "Poster", "Entertainment"],
+      image: "/assets/movie-poster-arts.webp",
       featured: true
     },
     {
       id: 5,
-      title: "NON VEG Burger Campaign",
-      category: "Food & Beverage",
-      description: "Bold food marketing design with vibrant orange branding and premium burger photography.",
-      tags: ["Food Marketing", "Branding", "Commercial"],
-      image: "/assets/NON VEG Burger Campaign.png",
+      title: "K.M.S Logo Design",
+      category: "Branding",
+      description: "Professional logo design with modern typography and branding elements.",
+      tags: ["Logo", "Branding", "Typography"],
+      image: "/assets/kms-logo-design.webp",
       featured: true
     },
     {
       id: 6,
-      title: "TOUGH Fitness Campaign",
-      category: "Sports & Fitness",
-      description: "Dynamic fitness poster design with bold yellow and black color scheme.",
-      tags: ["Fitness", "Poster Design", "Sports"],
-      image: "/assets/TOUGH Fitness Campaign.png",
+      title: "Sofa Brandings",
+      category: "Product Design",
+      description: "Furniture branding designs with elegant and modern aesthetics.",
+      tags: ["Furniture", "Branding", "Product"],
+      image: "/assets/sofa-brandings.webp",
       featured: true
     },
     {
       id: 7,
-      title: "RIDE INTO WILD",
+      title: "Royal Enfield's Posts",
       category: "Automotive Design",
-      description: "Adventure motorcycle campaign with natural outdoor environment and vintage styling.",
-      tags: ["Motorcycle", "Adventure", "Outdoor"],
-      image: "/assets/RIDE INTO WILD.png",
+      description: "Motorcycle social media designs with rugged and adventurous themes.",
+      tags: ["Motorcycle", "Social Media", "Adventure"],
+      image: "/assets/royal-enfield-posts.webp",
       featured: false
     },
     {
       id: 8,
-      title: "RIDE LIKE A BEAST",
-      category: "Automotive Design", 
-      description: "Urban motorcycle design with modern city backdrop and sleek styling.",
-      tags: ["Urban", "Motorcycle", "Modern"],
-      image: "/assets/RIDE LIKE A BEAST.png",
+      title: "Citrakaara Logo Design",
+      category: "Branding", 
+      description: "Artistic logo design with cultural and creative elements.",
+      tags: ["Logo", "Cultural", "Creative"],
+      image: "/assets/citrakaara-logo.webp",
       featured: false
     },
     {
       id: 9,
-      title: "POWER Royal Enfield",
+      title: "Ferrari Post Design",
       category: "Automotive Design",
-      description: "Premium motorcycle advertisement with luxury gold text effects and dramatic lighting.",
-      tags: ["Luxury", "Royal Enfield", "Premium"],
-      image: "/assets/POWER Royal Enfield.png",
+      description: "Luxury sports car design with premium and dynamic styling.",
+      tags: ["Ferrari", "Luxury", "Sports Car"],
+      image: "/assets/ferrari-post-design.webp",
       featured: true
     }
   ];
@@ -107,9 +107,9 @@ const Portfolio = () => {
   // Map display categories to actual portfolio categories
   const categoryMapping: Record<string, string[]> = {
     "All": [],
-    "Branding": ["Automotive Design", "Sports & Fitness"],
-    "Digital Design": ["Product Design"],
-    "Marketing": ["Food & Beverage"]
+    "Branding": ["Branding"],
+    "Digital Design": ["Digital Art", "Product Design"],
+    "Marketing": ["Automotive Design", "Entertainment"]
   };
 
   const categories = Object.keys(categoryMapping);
@@ -168,7 +168,7 @@ const Portfolio = () => {
             {filteredItems.map((item) => (
               <div key={item.id} className="group">
                 {/* Image Container */}
-                <div className="relative mb-6 cursor-pointer overflow-hidden rounded-lg" onClick={() => handleImageClick(item.image, item.title)}>
+                <div className="relative mb-6 cursor-pointer overflow-hidden" onClick={() => handleImageClick(item.image, item.title)}>
                   <div className="aspect-[3/4] relative">
                     <img 
                       src={item.image} 
