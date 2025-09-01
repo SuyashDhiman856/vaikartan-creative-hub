@@ -158,98 +158,40 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Design Gallery */}
       <section className="py-20 px-8">
         <div className="max-w-7xl mx-auto bg-white component-border p-8">
-          {/* Featured Projects */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 font-heading">Featured Projects</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {filteredItems.filter(item => item.featured).map((item) => (
-                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white relative">
-                  <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
+          <h2 className="text-4xl font-bold text-foreground mb-12 font-heading text-center">DESIGNS GALLERY</h2>
+          
+          {/* Gallery Grid - Blog style like the reference website */}
+          <div className="max-w-4xl mx-auto space-y-12">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="group">
+                {/* Image Container */}
+                <div className="relative mb-6 cursor-pointer overflow-hidden rounded-lg" onClick={() => handleImageClick(item.image, item.title)}>
+                  <div className="aspect-[3/4] relative">
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {/* Unsplash-style overlay with title and description */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                            {item.category}
-                          </Badge>
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2 font-heading">{item.title}</h3>
-                        <p className="text-sm opacity-90 mb-3">{item.description}</p>
-                        <div className="flex flex-wrap gap-1">
-                          {item.tags.slice(0, 3).map((tag, index) => (
-                            <Badge key={index} variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <Button variant="accent" size="lg" className="opacity-90 hover:opacity-100">
-                          <Eye className="mr-2 h-5 w-5" />
-                          View Full Design
-                        </Button>
-                      </div>
-                    </div>
                   </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* All Projects */}
-          <div>
-            <h2 className="text-3xl font-bold text-foreground mb-8 font-heading">All Projects</h2>
-            <div className="portfolio-grid">
-              {filteredItems.map((item) => (
-                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white relative">
-                  <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {/* Unsplash-style overlay with title and description */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="secondary" className="bg-white/20 text-white border-white/30 text-xs">
-                            {item.category}
-                          </Badge>
-                        </div>
-                        <h3 className="text-lg font-semibold mb-1 font-heading">{item.title}</h3>
-                        <p className="text-xs opacity-90 mb-2 line-clamp-2">{item.description}</p>
-                        <div className="flex flex-wrap gap-1">
-                          {item.tags.slice(0, 2).map((tag, index) => (
-                            <Badge key={index} variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
-                              {tag}
-                            </Badge>
-                          ))}
-                          {item.tags.length > 2 && (
-                            <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
-                              +{item.tags.length - 2}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <Button variant="accent" className="opacity-90 hover:opacity-100">
-                          <Eye className="mr-2 h-4 w-4" />
-                          View
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+                </div>
+                
+                {/* Content Below Image */}
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-bold text-foreground font-heading hover:text-accent transition-colors cursor-pointer">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Aayush Goyal
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.id === 1 ? "4 days ago" : item.id === 2 ? "4 days ago" : "5 days ago"}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
