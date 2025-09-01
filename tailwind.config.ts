@@ -19,7 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				yapari: ['Yatra One', 'cursive'],
+				yapari: ['Yapari', 'Yatra One', 'cursive'],
+				heading: ['Yapari', 'Yatra One', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

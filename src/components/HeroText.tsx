@@ -6,10 +6,10 @@ const HeroText = () => {
   return (
     <div className="bg-white component-border p-8 space-y-8 text-center lg:text-left">
       <div className="space-y-6">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground">
-          Creative
-          <span className="text-accent block">Design</span>
-          Solutions
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground font-heading">
+          COURAGE
+          <span className="text-accent block">PRECISION</span>
+          DESIGN
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
           We create clean, professional designs that help your business stand out.

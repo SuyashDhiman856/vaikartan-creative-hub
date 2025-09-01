@@ -118,9 +118,38 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Yapari', 'Yatra One', cursive;
+  }
+
   /* Global Component Border Style */
   .component-border {
     @apply border-2 border-white rounded-lg;
+  }
+
+  /* Gradient animation for hero video */
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+  
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   html {

@@ -163,39 +163,42 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto bg-white component-border p-8">
           {/* Featured Projects */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8">Featured Projects</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-8 font-heading">Featured Projects</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {filteredItems.filter(item => item.featured).map((item) => (
-                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white">
+                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white relative">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button variant="accent" size="lg">
-                        <Eye className="mr-2 h-5 w-5" />
-                        View Full Design
-                      </Button>
+                    {/* Unsplash-style overlay with title and description */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                            {item.category}
+                          </Badge>
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2 font-heading">{item.title}</h3>
+                        <p className="text-sm opacity-90 mb-3">{item.description}</p>
+                        <div className="flex flex-wrap gap-1">
+                          {item.tags.slice(0, 3).map((tag, index) => (
+                            <Badge key={index} variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <Button variant="accent" size="lg" className="opacity-90 hover:opacity-100">
+                          <Eye className="mr-2 h-5 w-5" />
+                          View Full Design
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <Badge variant="outline" className="border-accent text-accent">
-                        {item.category}
-                      </Badge>
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground mb-4">{item.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {item.tags.map((tag, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
                 </Card>
               ))}
             </div>
@@ -203,42 +206,47 @@ const Portfolio = () => {
 
           {/* All Projects */}
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-8">All Projects</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-8 font-heading">All Projects</h2>
             <div className="portfolio-grid">
               {filteredItems.map((item) => (
-                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white">
+                <Card key={item.id} className="group overflow-hidden component-border shadow-soft hover-lift hover-glow bg-white relative">
                   <div className="aspect-video relative overflow-hidden cursor-pointer" onClick={() => handleImageClick(item.image, item.title)}>
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button variant="accent">
-                        <Eye className="mr-2 h-4 w-4" />
-                        View Full Design
-                      </Button>
+                    {/* Unsplash-style overlay with title and description */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="secondary" className="bg-white/20 text-white border-white/30 text-xs">
+                            {item.category}
+                          </Badge>
+                        </div>
+                        <h3 className="text-lg font-semibold mb-1 font-heading">{item.title}</h3>
+                        <p className="text-xs opacity-90 mb-2 line-clamp-2">{item.description}</p>
+                        <div className="flex flex-wrap gap-1">
+                          {item.tags.slice(0, 2).map((tag, index) => (
+                            <Badge key={index} variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
+                              {tag}
+                            </Badge>
+                          ))}
+                          {item.tags.length > 2 && (
+                            <Badge variant="secondary" className="text-xs bg-white/10 text-white border-white/20">
+                              +{item.tags.length - 2}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <Button variant="accent" className="opacity-90 hover:opacity-100">
+                          <Eye className="mr-2 h-4 w-4" />
+                          View
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                  <CardContent className="p-4">
-                    <Badge variant="outline" className="border-accent text-accent mb-2 text-xs">
-                      {item.category}
-                    </Badge>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {item.tags.slice(0, 2).map((tag, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                      {item.tags.length > 2 && (
-                        <Badge variant="secondary" className="text-xs">
-                          +{item.tags.length - 2}
-                        </Badge>
-                      )}
-                    </div>
-                  </CardContent>
                 </Card>
               ))}
             </div>
